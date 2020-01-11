@@ -1,0 +1,68 @@
+<%-include('../partials/header')-%>
+
+<div class="row justify-content-center mt-5 mr-0">
+  <div class="col-md-3 col-xl-2">
+        <p class="lead text-left">YelpCamp</p>
+        <div class="list-group">
+          <li class="list-group-item active">Info 1</li>
+          <li class="list-group-item">Info 2</li>
+          <li class="list-group-item">Info 3</li>
+        </div>
+  </div>
+  <div class="col-md-6">
+      <div class="container card mb-4 p-0">
+            <img src="<%=campground.image%>" alt="" class="card-img-top">
+            <div class="figure-caption p-3">
+              <h4 class="float-right">$<%=campground.price%>/night</h4>
+              <h4 class=""><a href=""><%=campground.name%></a></h4>
+              <p class=""><em>Submitted by <%=campground.author.username%></em></p>
+              <%if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin === true)){%>
+              <div class="buttons my-3">
+                  <a class="btn btn-warning btn-md" href="/campgrounds/<%=campground._id%>/edit">Edit <i class="fas fa-pencil-alt"></i></a>
+                  <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger btn-md d-inline">Delete <i class="fas fa-trash-alt"></i></button>
+                  </form>
+              </div>
+              <%}%>
+              <p class="text m-0"><%=campground.description%></p>
+            </div>
+        </div>
+        
+        <div class="container comments card p-3">
+          <div class="text-right">
+            <a class="btn btn-success btn-md" href="/campgrounds/<%=campground._id%>/comments/new">Add New Comment</a>
+          </div>
+          <hr>
+          <%console.log(campground.comments)%>
+          <%if(campground.comments == ""){%>
+            <div class="row align-items-center">
+                <div class="col-md-12">
+                    <p class="text-center">No comments</p>
+                </div>
+                </div>
+          <%} else {%>
+            <%campground.comments.forEach(function(comment){%>
+              <div class="row">
+               <div class="col-md-11">
+                   <strong><%=comment.author.username%></strong>
+                   <span class="float-right date"><%=moment(comment.created).fromNow()%></span>
+                   <p><%=comment.text%></p>
+               </div>
+               <div class="col-md-1">
+                  <%if(currentUser && (comment.author.id.equals(currentUser._id) || currentUser.isAdmin === true)){%>
+                <a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit"><i class="fas fa-pencil-alt"></i></a>
+                <form class="d-inline" action="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                  <button class="delete-button"><i class="fas fa-trash-alt"></i></button> 
+                </form>
+                <%}%>
+              </div>
+               </div>
+             <%})%>
+          <%}%>
+        </div>
+  </div>
+  </div>
+<%-include('../partials/footer')-%>
+</body>
+</html>
+

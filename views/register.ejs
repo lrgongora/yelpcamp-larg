@@ -1,0 +1,32 @@
+<%-include('./partials/header')-%>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+<h1 class="text-center display-5 py-4">Register</h1>
+</div>
+<div  id="form-container" class="col-11 col-md-6 col-lg-4">
+<form action="/register" method="POST">
+  <div class="form-group">
+   <label for="username">First Name: </label>
+   <input class="form-control mb-3" type="text" id="first-name" name="firstName" required>
+   <label for="username">Last Name: </label>
+   <input class="form-control mb-3" type="text" id="last-name" name="lastName" required>
+   <label for="username">Email: </label>
+   <input class="form-control mb-3" type="email" id="email" name="email" required>
+   <label for="username">Username: </label>
+   <input class="form-control mb-3" type="text" id="username" name="username" required>
+   <label for="password">Password: </label>
+   <input class="form-control mb-3" type="password" id="password" name="password" required>
+   <button class="btn btn-primary btn-md btn-block mb-3" type="submit">Submit</button>
+  </div>
+</form>
+<a href="/campgrounds">Go back!</a>
+</div>
+</div>
+</div>
+
+<%-include('./partials/footer')-%>
+
+</body>
+</html>

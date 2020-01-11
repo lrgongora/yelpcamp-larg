@@ -1,0 +1,35 @@
+{
+  "name": "yelp-camp",
+  "version": "1.0.0",
+  "description": "YelpCamp is the yelp of campgrounds! Enjoy!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yelpcamp"
+  ],
+  "author": "Luis Ricardo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-sanitizer": "^1.0.5",
+    "express-session": "^1.17.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.8.3",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "request": "^2.88.0",
+    "sejda-js": "^2.0.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.0"
+  }
+}

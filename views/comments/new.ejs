@@ -1,0 +1,23 @@
+<%-include('../partials/header')-%>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+<h1 class="text-center display-5 py-4">Add New Comment to <%=campground.name%></h1>
+</div>
+<div  id="form-container" class="col-11 col-md-6 col-lg-4">
+<form action="/campgrounds/<%=campground._id%>/comments" method="POST">
+  <div class="form-group">
+  <textarea class="form-control mb-3" name="comment[text]" id="" required></textarea>
+  <button class="btn btn-primary btn-md btn-block mb-3" type="submit">Submit</button>
+  </div>
+</form>
+<a href="/campgrounds/<%=campground._id%>">Go back!</a>
+</div>
+</div>
+</div>
+
+<%-include('../partials/footer')-%>
+
+</body>
+</html>
