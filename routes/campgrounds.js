@@ -49,7 +49,7 @@ router.post('/',middleware.isLoggedIn, function(req, res){
     if(err) {
       console.log('An error has occurred!')
     } else {
-      req.flash("success", "Successfully created campground!");
+      req.flash("success", "New campground added!");
       res.redirect('/campgrounds');
     }
   })

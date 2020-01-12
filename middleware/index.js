@@ -4,7 +4,7 @@ middlewareObj.isLoggedIn = function (req, res, next){
   if(req.isAuthenticated()){
     return next();
   }
-  req.flash('error', 'You need to be logged in to do that');
+  req.flash('error', 'Please, login first!');
   res.redirect('/login');
 };
 
@@ -18,13 +18,13 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
         if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin == true){
           next();
         } else {
-          req.flash("error", "You don't have permission to do that");
+          req.flash("error", "Insufficient permissions!");
           res.redirect('back');
         }
       }
     });
   } else {
-    req.flash('error', 'You need to be logged in to do that');
+    req.flash('error', 'Please, login first!');
     res.redirect('back');
   }
 };
@@ -40,7 +40,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
         if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin == true){
           next();
         } else {
-          req.flash("error", "You don't have permission to do that");
+          req.flash("error", "Insufficient permissions!");
           res.redirect('back');
         }
       }
