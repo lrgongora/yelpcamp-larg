@@ -23,7 +23,7 @@ var express               = require('express');
 
 // seedDb();
 
-mongoose.connect('mongodb://localhost:27017/yelpcamp_v13',{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
+mongoose.connect('mongodb+srv://yelpcuser:79eMgSCB5NQUfbU9@cluster0-aywet.gcp.mongodb.net/yelpcamp_larg?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
   if(err) {
     console.log("DB is not accessible!")
   }
@@ -72,4 +72,12 @@ app.get('/', function(req, res){
   res.render('landing');
 });
 
-app.listen(3050);
+app.listen(process.env.PORT, process.env.IP, function(err){
+  if(err){
+    console.log(err);
+  } else {
+    console.log("Server is Up and Running...");
+    console.log("Port: " + process.env.PORT + " and IP: " + process.env.IP);
+  }
+  
+});

@@ -8,12 +8,12 @@
 <div  id="form-container" class="col-9 col-md-6 col-lg-4">
 <form action="/campgrounds" method="POST">
   <div class="form-group">
-  <input class="form-control mb-3" type="text" placeholder="name" name="campground[name]" required>
-  <input class="form-control mb-3" type="text" placeholder="image src" name="campground[image]" required>
+  <input class="form-control mb-3" type="text" placeholder="Name" name="campground[name]" required>
+  <input class="form-control mb-3" type="text" placeholder="Image URL" name="campground[image]" required>
   <label id="dollarSign" for="price">$ </label>
-  <input class="form-control mb-3" type="number" min="0.01" step="0.01" placeholder="price" id="price" name="campground[price]" required>
-  <input class="form-control mb-3" type="text" placeholder="description" name="campground[description]" required>
-  <button class="btn btn-primary btn-md btn-block mb-3" type="submit">Submit!</button>
+  <input class="form-control mb-3" type="number" min="0" step="0.01" placeholder="Price" id="price" name="campground[price]" required>
+  <textarea class="form-control mb-3" placeholder="Description" name="campground[description]" id="description" required></textarea>
+  <button class="btn btn-primary btn-md btn-block mb-3" type="submit">Submit</button>
   </div>
 </form>
 <a href="/campgrounds">Go back!</a>
