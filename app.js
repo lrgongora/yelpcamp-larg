@@ -24,7 +24,7 @@ var express               = require('express');
 
 // seedDb();
 
-mongoose.connect('mongodb+srv://yelpcuser:79eMgSCB5NQUfbU9@cluster0-aywet.gcp.mongodb.net/yelpcamp_larg?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
+mongoose.connect(MongoDBURI,{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
   if(err) {
     console.log("DB is not accessible!")
   }
