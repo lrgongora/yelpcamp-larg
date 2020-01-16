@@ -18,7 +18,7 @@ var express               = require('express');
     commentRoutes         = require('./routes/comments');
     authRoutes            = require('./routes/auth');
     adminRoutes           = require('./routes/admin');
-    userDashboardRoutes   = require('./routes/dashboard');
+    dashboardRoutes   = require('./routes/dashboard');
     flash                 = require('connect-flash');
     moment                = require('moment');
 
@@ -57,7 +57,7 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 app.use('/', authRoutes);
 app.use('/admin', adminRoutes);
-app.user('/dashboard');
+app.use('/dashboard', dashboardRoutes);
 
 
 // Campground.create({
