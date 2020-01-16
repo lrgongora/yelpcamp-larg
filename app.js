@@ -18,7 +18,7 @@ var express               = require('express');
     commentRoutes         = require('./routes/comments');
     authRoutes            = require('./routes/auth');
     adminRoutes           = require('./routes/admin');
-    dashboardRoutes   = require('./routes/dashboard');
+    dashboardRoutes       = require('./routes/dashboard');
     flash                 = require('connect-flash');
     moment                = require('moment');
 
