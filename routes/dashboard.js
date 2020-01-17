@@ -6,14 +6,9 @@ User                  = require('../models/user');
 middleware            = require('../middleware');
 
 
-app.get('/submissions', middleware.isLoggedIn, function(req, res){
-    if(err){
-        console.log(err);
-        req.flash("error", "Something went wrong!");
-        res.redirect("/campgrounds");
-    } else {
-        Campground.find({name: req.user.username}, function(err, campgrounds){
-            if(err || campground == ""){
+router.get('/submissions', middleware.isLoggedIn, function(req, res){
+        Campground.find({"author.username": req.user.username}, function(err, campgrounds){
+            if(err || campgrounds == ""){
                 req.flash("error", "No campgrounds found!");
                 res.redirect("/campgrounds");
             } else {
@@ -21,7 +16,7 @@ app.get('/submissions', middleware.isLoggedIn, function(req, res){
             }
         });
         
-    }
+    
 });
 
 

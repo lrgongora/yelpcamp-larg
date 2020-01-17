@@ -24,10 +24,11 @@
               <p class=""><em>Submitted by <%=campground.author.username%></em></p>
               <%if(currentUser && (campground.author.id.equals(currentUser._id) || currentUser.isAdmin === true)){%>
               <div class="buttons my-3">
+                  <p id="campground-id" hidden><%=campground._id%></p>
                   <a class="btn btn-warning btn-md" href="/campgrounds/<%=campground._id%>/edit">Edit <i class="fas fa-pencil-alt"></i></a>
-                  <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-                    <button class="btn btn-danger btn-md d-inline">Delete <i class="fas fa-trash-alt"></i></button>
-                  </form>
+                  <!-- <form class="d-inline" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST"> -->
+                    <button class="delete-campground btn btn-danger btn-md d-inline">Delete <i class="fas fa-trash-alt"></i></button>
+                  <!-- </form> -->
               </div>
               <%}%>
               <p class="text m-0"><%=campground.description%></p>
@@ -35,6 +36,9 @@
         </div>
         
         <div class="container comments card p-3">
+          <!-- <div class="text-left">
+            <textarea class="form-control mb-3" name="comment[text]" id="" required></textarea>
+          </div> -->
           <div class="text-right">
             <a class="btn btn-success btn-md" href="/campgrounds/<%=campground._id%>/comments/new">Add New Comment</a>
           </div>

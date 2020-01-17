@@ -24,7 +24,9 @@ var express               = require('express');
 
 // seedDb();
 
-mongoose.connect(MongoDBURI,{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
+var mongoURI;
+
+mongoose.connect(mongoURI,{useNewUrlParser: true, useUnifiedTopology: true}, function(err){
   if(err) {
     console.log("DB is not accessible!")
   }
@@ -59,28 +61,16 @@ app.use('/', authRoutes);
 app.use('/admin', adminRoutes);
 app.use('/dashboard', dashboardRoutes);
 
-
-// Campground.create({
-//   name: "Hobo",
-//   image: "https://www.campsitephotos.com/photo/camp/140225/Hobo_021.jpg" 
-// }, function(err, campground) {
-//   if(err) {
-//     console.log("An error has occurred!")
-//   } else {
-//     console.log("Added " + campground.name + " to the DB!");
-//   }
-// });
-
 app.get('/', function(req, res){
   res.render('landing');
 });
 
-app.listen(process.env.PORT, process.env.IP, function(err){
+app.listen(process.env.PORT, process.env.IP,function(err){
   if(err){
     console.log(err);
   } else {
     console.log("Server is Up and Running...");
     console.log("Port: " + process.env.PORT + " and IP: " + process.env.IP);
   }
-  
+
 });

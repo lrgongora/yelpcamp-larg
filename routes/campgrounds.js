@@ -92,13 +92,32 @@ router.put('/:id',middleware.checkEmptyCampground,middleware.checkCampgroundOwne
   });
 });
 
-//DELETE
+//OLD DELETE
 
-router.delete('/:id',middleware.checkCampgroundOwnership, function(req, res){
-  Campground.findByIdAndDelete(req.params.id, function(err, campground){
+// router.delete('/:id',middleware.checkCampgroundOwnership, function(req, res){
+//   Campground.findByIdAndDelete(req.params.id, function(err, campground){
+//     if(err){
+//       console.log(err);
+//       res.redirect('/campgrounds/' + req.params.id);
+//     } else {
+//       Comment.deleteMany({_id: {$in: campground.comments}}, function(err){
+//         if(err){
+//           console.log(err);
+//         } else {
+//           res.redirect('/campgrounds');
+//         }
+//       })
+//     }
+//   });
+// });
+
+router.delete('/',middleware.checkCampgroundOwnership, function(req, res){
+  console.log('DELETE method');
+  console.log(req)
+  Campground.findByIdAndDelete(req.body.campgroundID, function(err, campground){
     if(err){
       console.log(err);
-      res.redirect('/campgrounds/' + req.params.id);
+      res.redirect('/campgrounds/' + req.body.campgroundID);
     } else {
       Comment.deleteMany({_id: {$in: campground.comments}}, function(err){
         if(err){
